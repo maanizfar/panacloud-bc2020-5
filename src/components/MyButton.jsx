@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
-import useWebAnimations from "@wellyshen/use-web-animations";
 
 const useStyles = makeStyles((theme) => ({
   btn: {
