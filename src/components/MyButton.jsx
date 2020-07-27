@@ -37,7 +37,7 @@ const MyButton = ({ text }) => {
     ref.current.animate(
       [
         { transform: "scale(0)", width: "0px", marginRight: 0 },
-        { transform: "scale(1)", width: "20px", marginRight: "16px" },
+        { transform: "scale(1)", width: "8px", marginRight: "8px" },
       ],
       timing
     );
@@ -46,7 +46,7 @@ const MyButton = ({ text }) => {
   const reverse = () => {
     ref.current.animate(
       [
-        { transform: "scale(1)", width: "20px", marginRight: "16px" },
+        { transform: "scale(1)", width: "8px", marginRight: "8px" },
         { transform: "scale(0)", width: "0px", marginRight: 0 },
       ],
       timing
