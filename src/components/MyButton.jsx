@@ -34,22 +34,20 @@ const MyButton = ({ text }) => {
   };
 
   const play = () => {
-    console.log("play");
     ref.current.animate(
       [
-        { transform: "scale(0)", width: 0, marginRight: 0 },
-        { transform: "scale(1)", width: 20, marginRight: "16px" },
+        { transform: "scale(0)", width: "0px", marginRight: 0 },
+        { transform: "scale(1)", width: "20px", marginRight: "16px" },
       ],
       timing
     );
   };
 
   const reverse = () => {
-    console.log("reverse");
     ref.current.animate(
       [
-        { transform: "scale(1)", width: 20, marginRight: "16px" },
-        { transform: "scale(0)", width: 0, marginRight: 0 },
+        { transform: "scale(1)", width: "20px", marginRight: "16px" },
+        { transform: "scale(0)", width: "0px", marginRight: 0 },
       ],
       timing
     );

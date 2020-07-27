@@ -71,11 +71,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WhatIsIt = ({ image, heading, text }) => {
+const WhatIsIt = ({ image, heading, text, sectionId }) => {
   const classes = useStyles();
 
   return (
-    <section>
+    <section id={sectionId}>
       <Container className={classes.container}>
         <div className={classes.descWrapper}>
           <div className={classes.questionContainer}>

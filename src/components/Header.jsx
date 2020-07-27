@@ -9,6 +9,7 @@ import useWebAnimations, {
   heartBeat,
 } from "@wellyshen/use-web-animations";
 import MyButton from "./MyButton";
+import { Link } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -124,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ onClickScrollDown }) => {
+const Header = ({ scrollTo }) => {
   const classes = useStyles();
   const logoRef = useRef(null);
   const scrollDownRef = useRef(null);
@@ -182,12 +183,13 @@ const Header = ({ onClickScrollDown }) => {
           <Hidden smDown>
             <Typography variant="body1">Explore</Typography>
           </Hidden>
-          <KeyboardArrowDownIcon
-            ref={scrollDownRef}
-            fontSize="large"
-            className={classes.scrolldown}
-            onClick={onClickScrollDown}
-          />
+          <Link to={scrollTo} smooth={true}>
+            <KeyboardArrowDownIcon
+              ref={scrollDownRef}
+              fontSize="large"
+              className={classes.scrolldown}
+            />
+          </Link>
         </div>
       </Container>
     </section>
