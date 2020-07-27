@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
 
@@ -58,6 +59,8 @@ const useStyles = makeStyles((theme) => ({
 
   text: {
     marginBottom: theme.spacing(6),
+    maxWidth: 600,
+
     [theme.breakpoints.down("xs")]: {
       marginBottom: theme.spacing(2),
     },
@@ -68,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WhatIsIt = () => {
+const WhatIsIt = ({ image, heading, text }) => {
   const classes = useStyles();
 
   return (
@@ -77,18 +80,16 @@ const WhatIsIt = () => {
         <div className={classes.descWrapper}>
           <div className={classes.questionContainer}>
             <Typography variant="h6" className={classes.questionText}>
-              Our takeover, but what is it?
+              {heading}
             </Typography>
           </div>
 
           <Typography variant="body2" className={classes.text}>
-            We transform your school into a country for a day then provide you
-            with a 2 week related curriculum that encompasses all subjects. We
-            provide a fantastic learning experience for every age group.
+            {text}
           </Typography>
         </div>
         <div className={classes.gifContainer}>
-          <img src="images/macaque.gif" alt="tucan" className={classes.gif} />
+          <img src={image} alt={heading} className={classes.gif} />
         </div>
       </Container>
     </section>
