@@ -9,5 +9,24 @@ export const theme = createMuiTheme({
     secondary: {
       main: "#fefefe",
     },
+    green: "#389b35",
+  },
+
+  typography: {
+    h1: {
+      fontSize: "2rem",
+
+      "@media (max-width:644px)": {
+        fontSize: "1.5rem",
+      },
+    },
+
+    h6: {
+      fontSize: "1.2rem",
+
+      "@media (max-width:644px)": {
+        fontSize: "1rem",
+      },
+    },
   },
 });
