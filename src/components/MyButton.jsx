@@ -5,10 +5,10 @@ import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
 const useStyles = makeStyles((theme) => ({
   btn: {
-    padding: "0.5rem 3rem",
+    padding: "0.75rem 2rem",
     border: "1px solid grey",
     borderRadius: "50px",
-    width: 160,
+    width: 180,
 
     "&:hover": {
       "& div": {

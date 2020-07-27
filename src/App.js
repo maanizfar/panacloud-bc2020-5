@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { CssBaseline } from "@material-ui/core";
 import WhatIsIt from "./components/WhatIsIt";
 import Countries from "./components/Countries/Countries";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         image="images/Liam-No-Background.gif"
         text="We can tailor make a takeover for any nation. With our vast knowledge, we can take your children on a journey to Nepal, South Africa or any other country in this wonderful world all in the comfort of your own school. "
       />
+      <Contact />
     </>
   );
 }

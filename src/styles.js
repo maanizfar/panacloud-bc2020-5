@@ -28,6 +28,13 @@ export const theme = createMuiTheme({
         fontSize: "1rem",
       },
     },
+    h4: {
+      fontSize: "2rem",
+
+      "@media (max-width:644px)": {
+        fontSize: "1.1rem",
+      },
+    },
 
     body2: {
       fontSize: "1.6rem",
