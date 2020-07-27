@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Hidden } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import useWebAnimations, {
+  backInDown,
+  heartBeat,
+} from "@wellyshen/use-web-animations";
 import MyButton from "./MyButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    paddingBottom: theme.spacing(2),
   },
 
   logo: {
@@ -113,16 +118,42 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
     },
   },
+
+  scrolldown: {
+    cursor: "pointer",
+  },
 }));
 
-const Header = () => {
+const Header = ({ onClickScrollDown }) => {
   const classes = useStyles();
+  const logoRef = useRef(null);
+  const scrollDownRef = useRef(null);
+
+  useWebAnimations({
+    ref: logoRef,
+    ...backInDown,
+  });
+
+  const { keyframes, timing } = heartBeat;
+  useWebAnimations({
+    ref: scrollDownRef,
+    keyframes,
+    timing: {
+      ...timing,
+      iterations: Infinity,
+    },
+  });
 
   return (
     <section className={classes.wrapper}>
       <Container className={classes.container}>
         <div className={classes.logoContainer}>
-          <img src="images/logo.svg" alt="logo" className={classes.logo} />
+          <img
+            ref={logoRef}
+            src="images/logo.svg"
+            alt="logo"
+            className={classes.logo}
+          />
         </div>
         <Grid container className={classes.content}>
           <Grid item xs={12} md={6} className={classes.tucanContainer}>
@@ -151,7 +182,12 @@ const Header = () => {
           <Hidden smDown>
             <Typography variant="body1">Explore</Typography>
           </Hidden>
-          <KeyboardArrowDownIcon fontSize="large" />
+          <KeyboardArrowDownIcon
+            ref={scrollDownRef}
+            fontSize="large"
+            className={classes.scrolldown}
+            onClick={onClickScrollDown}
+          />
         </div>
       </Container>
     </section>
