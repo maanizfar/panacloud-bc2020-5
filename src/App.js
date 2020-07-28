@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import { CssBaseline } from "@material-ui/core";
-import WhatIsIt from "./components/WhatIsIt";
+import InfoSection from "./components/InfoSection";
 import Countries from "./components/Countries/Countries";
 import Contact from "./components/Contact";
 
@@ -10,7 +10,7 @@ function App() {
     <>
       <CssBaseline />
       <Header scrollTo="section2" />
-      <WhatIsIt
+      <InfoSection
         sectionId="section2"
         heading="Our takeover, but what is it?"
         image="images/macaque.gif"
@@ -19,7 +19,7 @@ function App() {
             provide a fantastic learning experience for every age group."
       />
       <Countries />
-      <WhatIsIt
+      <InfoSection
         sectionId="section4"
         heading="Not found the country you’re looking for?"
         image="images/Liam-No-Background.gif"

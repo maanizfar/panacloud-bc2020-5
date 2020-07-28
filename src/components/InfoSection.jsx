@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Container } from "@material-ui/core";
+import useWebAnimations from "@wellyshen/use-web-animations";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -71,15 +72,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WhatIsIt = ({ image, heading, text, sectionId }) => {
+const InfoSection = ({ image, heading, text, sectionId }) => {
   const classes = useStyles();
+
+  const { ref } = useWebAnimations({
+    keyframes: [
+      { transform: "translateY(0px)" },
+      { transform: "translateY(6px)" },
+      { transform: "translateY(0px)" },
+    ],
+    timing: {
+      duration: 1000,
+      easing: "ease-in-out",
+      iterations: Infinity,
+    },
+  });
 
   return (
     <section id={sectionId}>
       <Container className={classes.container}>
         <div className={classes.descWrapper}>
           <div className={classes.questionContainer}>
-            <Typography variant="h6" className={classes.questionText}>
+            <Typography ref={ref} variant="h6" className={classes.questionText}>
               {heading}
             </Typography>
           </div>
@@ -96,4 +110,4 @@ const WhatIsIt = ({ image, heading, text, sectionId }) => {
   );
 };
 
-export default WhatIsIt;
+export default InfoSection;

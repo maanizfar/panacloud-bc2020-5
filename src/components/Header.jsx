@@ -5,7 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Hidden } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import useWebAnimations, {
-  backInDown,
+  bounceInRight,
+  bounceInLeft,
   heartBeat,
 } from "@wellyshen/use-web-animations";
 import MyButton from "./MyButton";
@@ -129,10 +130,31 @@ const Header = ({ scrollTo }) => {
   const classes = useStyles();
   const logoRef = useRef(null);
   const scrollDownRef = useRef(null);
+  const descRef = useRef(null);
+  const tucanRef = useRef(null);
 
   useWebAnimations({
     ref: logoRef,
-    ...backInDown,
+
+    keyframes: [
+      { transform: "scale(0.95)" },
+      { transform: "scale(1)" },
+      { transform: "scale(0.95)" },
+    ],
+    timing: {
+      duration: 1000,
+      easing: "ease-in-out",
+      iterations: Infinity,
+    },
+  });
+
+  useWebAnimations({
+    ref: descRef,
+    ...bounceInRight,
+  });
+  useWebAnimations({
+    ref: tucanRef,
+    ...bounceInLeft,
   });
 
   const { keyframes, timing } = heartBeat;
@@ -157,10 +179,16 @@ const Header = ({ scrollTo }) => {
           />
         </div>
         <Grid container className={classes.content}>
-          <Grid item xs={12} md={6} className={classes.tucanContainer}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            className={classes.tucanContainer}
+            ref={tucanRef}
+          >
             <img src="images/Tucan.gif" alt="tucan" className={classes.tucan} />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} ref={descRef}>
             <div className={classes.descWrapper}>
               <div className={classes.questionContainer}>
                 <Typography variant="h6" className={classes.questionText}>

@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Container, Grid } from "@material-ui/core";
+import useWebAnimations from "@wellyshen/use-web-animations";
 import CountryCard from "./CountryCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,10 +50,23 @@ const useStyles = makeStyles((theme) => ({
 const Countries = () => {
   const classes = useStyles();
 
+  const { ref } = useWebAnimations({
+    keyframes: [
+      { transform: "translateY(0px)" },
+      { transform: "translateY(6px)" },
+      { transform: "translateY(0px)" },
+    ],
+    timing: {
+      duration: 1000,
+      easing: "ease-in-out",
+      iterations: Infinity,
+    },
+  });
+
   return (
     <section className={classes.wrapper}>
       <Container className={classes.container}>
-        <div className={classes.questionContainer}>
+        <div ref={ref} className={classes.questionContainer}>
           <Typography variant="h6" className={classes.questionText}>
             Popular countries for takeover
           </Typography>
